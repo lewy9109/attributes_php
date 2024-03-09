@@ -11,8 +11,9 @@ class Validator
     public function validate(object $object): void
     {
         $reflector = new ReflectionClass($object);
-
-        dd($reflector);
+        // dd($reflector->getProperties());
+        foreach ($reflector->getProperties() as $property) {
+        }
     }
 
     public function getErrors(): array
