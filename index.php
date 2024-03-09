@@ -2,13 +2,15 @@
 
 require_once "vendor/autoload.php";
 
-// use Lewy9109\Attributes\DTO\Product;
 use App\ValueObject\Standard\TextValue;
+use App\Validation\Validator;
 
-// // $product = new Product(
-// //     new TextValue()
-// // );
+$name = new TextValue("");
 
-$name = new TextValue("First Product");
+$validator = new Validator();
+
+$validator->validate($name);
+
+$errors = $validator->getErrors();
 
 dump($name->getValue());
