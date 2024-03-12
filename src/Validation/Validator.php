@@ -15,7 +15,6 @@ class Validator
     public function validate(object $object): void
     {
         $reflector = new ReflectionClass($object);
-        // dd($reflector->getProperties());
         foreach ($reflector->getProperties() as $property) {
             $attributs = $property->getAttributes(
                 ValidatorRuleInterface::class,
