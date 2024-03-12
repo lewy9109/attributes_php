@@ -2,15 +2,14 @@
 
 namespace App\DTO;
 
-use App\ValueObject\Standard\TextValue;
-use App\ValueObject\Stock;
+use App\Validation\Rule\Required;
 
 readonly class Product
 {
     public function __construct(
-        public readonly TextValue $erpId,
-        public readonly TextValue $name,
-        public readonly Stock $stock
+        #[Required] public readonly string $erpId,
+        #[Required] public readonly string $name,
+        #[Required] public readonly int $stock
     ) {
     }
 }

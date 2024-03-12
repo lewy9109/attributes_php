@@ -2,15 +2,21 @@
 
 require_once "vendor/autoload.php";
 
-use App\ValueObject\Standard\TextValue;
+use App\DTO\Product;
 use App\Validation\Validator;
 
-$name = new TextValue("");
+//error
+$name = "";
 
+$erpId = "XXX-123";
+
+//error
+$stock = 0;
+
+$product = new Product($name, $erpId, $stock);
 $validator = new Validator();
 
-$validator->validate($name);
-
+$validator->validate($product);
 $errors = $validator->getErrors();
 
-dump($name->getValue());
+dump($errors);

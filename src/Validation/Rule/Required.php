@@ -2,15 +2,16 @@
 
 namespace App\Validation\Rule;
 
-use App\Validation\ValidatorInterface;
-use Attribute
+use App\Validation\Rule\ValidatorRuleInterface;
+use App\Validation\Validators\ValidatorInterface;
+use Attribute;
+use App\Validation\Validators\RequireValidator;
 
 #[Attribute]
-class Required implements ValidatorInterface
+class Required implements ValidatorRuleInterface
 {
-
-    public function getValidator()
+    public function getValidator(): ValidatorInterface
     {
-
+        return new RequireValidator();
     }
 }
